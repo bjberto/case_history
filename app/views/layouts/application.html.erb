@@ -1,14 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SampleApp</title>
+  <link rel="icon" type="image/x-icon" href="http://enbage.com/assets/favicon-logo.ico">
+  <title>SimpleApp</title>
+   <!-- <meta name="viewport" content="width=device-width" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- <link href="bootstrap-responsive.css" rel="stylesheet"> -->
+  
+  <%= stylesheet_link_tag    'bootstrap-responsive', media: 'all' %>
+  <%= stylesheet_link_tag    'case_histories', media: 'all' %>
   <%= csrf_meta_tags %>
+  
 </head>
-<body>
 
+<body style="padding-left: 0; padding-right: 0; ">
+
+  <header class="menu">
+    <nav class="navbar navbar-default" role="navigation" style="border-radius: 0px;">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="http://enbage.it/" class="navbar-brand" style="margin-top: 13px; display: inline-block; margin-bottom: 13px;border-bottom: 1px solid #cab340;">
+            <%= image_tag "enbage_logo.png" %>
+          </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse ulNav" id="bs-example-navbar-collapse-1">
+          <ul id="navcontainer"style="">
+            <% if @case_history && !@case_history.new_record?  %>          
+              <li><a href="#mission"class="anchor"class="active">Mission</a></li>
+              <li><a href="#solution"class="anchor"class="active">Solution</a></li>
+              <li><a href="#result"class="anchor"class="active">Result</a></li> 
+              <li style="font-family: roboto;font-size: 20px;font-weight: bold;">|</li> 
+              <li><%= link_to "Edit", edit_case_history_path(@case_history) %></li>
+              <li><a href="/case_histories">Back</a></li>  
+              <% else %>
+                <% if current_page?(case_histories_path) %>
+                  <li><%= link_to 'New Case history', new_case_history_path %></li>
+                  <% else %>
+                    <li><a href="/case_histories">Back</a></li>
+                <% end %>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </header>
+ <!--  <header class="menu">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+     
+          
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+     
+          <a class="brand" href="http://enbage.it/" style="margin-top: 13px; display: inline-block; margin-bottom: 13px;border-bottom: 1px solid #cab340;">
+            <%= image_tag "enbage_logo.png" %>
+          </a>
+          
+          <div class="nav-collapse collapse ">
+            <ul id="navcontainer"style="float: right; list-style: none;margin-right: 33px;margin-top: 30px;">
+              <% if @case_history && !@case_history.new_record? %>          
+                <li><a href="#mission"class="anchor"class="active">Mission</a></li>
+                <li><a href="#solution"class="anchor"class="active">Solution</a></li>
+                <li><a href="#result"class="anchor"class="active">Result</a></li> 
+                <li style="font-family: roboto;font-size: 20px;font-weight: bold;">|</li> 
+                <li><%= link_to "Edit", edit_case_history_path(@case_history) %></li>
+                <li><a href="/case_histories">Back</a></li>
+              <% end %>
+            </ul>
+
+          </div>
+     
+        </div>
+      </div>
+    </div>
+  </header> -->
+<!-- <header class="menu">
+  
+  <div style="display: block;">
+    <nav>
+      <a href="http://enbage.it/" style="margin-top: 13px; display: inline-block; margin-bottom: 13px;border-bottom: 1px solid #cab340;">
+        <%= image_tag "enbage_logo.png" %>
+      </a>
+      <ul id="navcontainer"style="float: right; list-style: none;margin-right: 33px;margin-top: 30px;">
+        <% if @case_history && !@case_history.new_record? %>          
+          <li><a href="#mission"class="anchor"class="active">Mission</a></li>
+          <li><a href="#solution"class="anchor"class="active">Solution</a></li>
+          <li><a href="#result"class="anchor"class="active">Result</a></li> 
+          <li style="font-family: roboto;font-size: 20px;font-weight: bold;">|</li> 
+          <li><%= link_to "Edit", edit_case_history_path(@case_history) %></li>
+          <li><a href="/case_histories">Back</a></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header> -->
 <%= yield %>
+<footer style="margin-top: 45px;text-align: center; height: 200px; padding-top: 1em;">
+	<div>
+    <a href="http://facebook.com/enbagetools" target="_blank" title="Facebook"> 
+      <img alt="Facebook" src="/assets/facebook_round.png">
+    </a>
+    <a href="http://twitter.com/Enbage" target="_blank" title="Twitter"> 
+      <img alt="Facebook icona tonda" src="/assets/twitter_round.png">
+    </a>
+    <a href="https://plus.google.com/117827290305790033185" target="_blank" title="Google Plus"> 
+      <img alt="Facebook icona tonda" src="/assets/gplus_round_s.png"> 
+    </a>
+    <a href="http://instagram.com/enbage" target="_blank" title="Instagram">
+      <img alt="Facebook icona tonda" src="/assets/instagram_round.png">
+    </a>
+    <a href="http://enbage.tumblr.com/" target="_blank" title="Tumblr">
+      <img alt="Facebook icona tonda" src="/assets/tumblr_round.png">
+    </a>     
+  </div>
 
+  <div style="color: grey;font-family: Oswald;font-size: 20px;">  
+    © uqido
+  </div>
+
+</footer>
 </body>
 </html>
