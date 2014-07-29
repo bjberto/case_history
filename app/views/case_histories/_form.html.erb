@@ -1,0 +1,123 @@
+<%= form_for(@case_history) do |f| %>
+  <% if @case_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@case_history.errors.count, "error") %> prohibited this case_history from being saved:</h2>
+
+      <ul>
+      <% @case_history.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row style_edit_new">
+    <div class="col-md-6 style_edit_new_general">
+      
+      <div class="field" >
+        <%= f.label :company_name %>
+        <%= f.text_field :company_name, placeholder: "name" %></br>  
+      </div>
+      <div class="field" >
+        <%= f.label :start_at %><br>
+        <%= f.datetime_select :start_at %>
+      </div>
+      <div class="field">
+        <%= f.label :end_at %><br>
+        <%= f.datetime_select :end_at %>
+      </div>
+      <div class="field">
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: "title" %>      
+      </div>
+      <div class="field">
+        <%= f.label :mission_title %>
+        <%= f.text_field :mission_title, placeholder: "title" %>
+      </div>
+      <div class="field">
+        <%= f.label :mission_description %><br>
+        <%= f.text_area :mission_description %>      
+      </div>
+      <div class="field">
+        <%= f.label :solution_title %>
+        <%= f.text_field :solution_title, placeholder: "title" %>
+      </div>
+      <div class="field">
+        <%= f.label :solution_description %><br>
+        <%= f.text_area :solution_description %>
+      </div>
+      <div class="field">
+        <%= f.label :result_title %>
+        <%= f.text_field :result_title, placeholder: "title" %>
+      </div>
+      <div class="field">
+        <%= f.label :result_description %><br>
+        <%= f.text_area :result_description %>    
+      </div>
+    </div>
+    <div class="col-md-6 style_edit_new_specifics">
+      <div class="field">
+        <%= f.label :background_image %>
+        <%= f.text_field :background_image, placeholder: ".jpg" %></br>
+        <%= f.label :logo %>
+        <%= f.text_field :background_logo, placeholder: ".png" %></br>
+        <%= f.label :background_title %>
+        <%= f.color_field :background_title %></br>
+        <%= f.label :mission_color %>
+        <%= f.color_field :background_mission %></br>
+        <%= f.label :background_solution %>
+        <%= f.color_field :background_solution %></br>
+        <%= f.label :background_result %>
+        <%= f.color_field :background_result %></br>
+        <%= f.label :title_text_color %>
+        <%= f.color_field :title_text_color %></br>
+        <%= f.label :mission_text_color %>
+        <%= f.color_field :mission_text_color %></br>
+        <%= f.label :solution_text_color %>
+        <%= f.color_field :solution_text_color %></br>
+        <%= f.label :result_text_color %>
+        <%= f.color_field :result_text_color %></br>
+      </div>
+      <div class="actions" style="margin-top: 100px;vertical-align: middle; text-align: center;">
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="field" class="f1" style="height: 800px;border-right: solid;
+  border-right-color: black;">
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name, placeholder: "name" %></br>
+    <%= f.label :start_at %><br>
+    <%= f.datetime_select :start_at %></br>
+    <%= f.label :end_at %><br>
+    <%= f.datetime_select :end_at %></br>
+    <%= f.label :title %>
+    <%= f.text_field :title,  placeholder: "title" %></br>
+    <%= f.label :mission_title %>
+    <%= f.text_field :mission_title,  placeholder: "title" %></br>
+    <%= f.label :mission_description %></br>
+    <%= f.text_area :mission_description, placeholder: "description" %></br>
+    <%= f.label :solution_title %>
+    <%= f.text_field :solution_title,  placeholder: "title" %></br>
+    <%= f.label :solution_description %></br>
+    <%= f.text_area :solution_description, placeholder: "description" %></br>
+    <%= f.label :result_title %>
+    <%= f.text_field :result_title,  placeholder: "title" %></br>
+    <%= f.label :result_description %></br>
+    <%= f.text_area :result_description, placeholder: "description" %>    
+  </div> 
+  <div class="field_design">
+    <%= f.label :background_image %><br>
+    <%= f.text_field :background_image, placeholder: ".jpg" %></br>
+    <%= f.label :logo %><br>
+    <%= f.text_field :background_logo, placeholder: ".png" %></br>
+    <%= f.label :background_title %><br>
+    <%= f.color_field :background_title %></br>
+    <%= f.label :mission_color %><br>
+    <%= f.color_field :background_mission; %></br>
+    <%= f.label :background_solution %><br>
+    <%= f.color_field :background_solution %></br>
+    <%= f.label :background_result %><br>
+    <%= f.color_field :background_result %></br>
+  </div> -->
+  
+<% end %>

@@ -1,0 +1,59 @@
+
+<div class="form" style=" text-align: center;">
+  
+  <H1 id="h1"style="padding-top: 30px">Il nostro lavoro</H1>
+  <div class="row" id="index"  onclick="location.hreef='http://localhost:3000/case_histories/2'">
+    <% @case_histories.each do |case_history| %>
+    <div class = " col-md-4 wrapper" style="padding-left: 0px;padding-right: 0px;">
+      <a class="history" href="/case_histories/<%= case_history.id %>" style="background-image: url(/assets/<%= case_history.background_image %>.jpg);">
+        
+        <ul class="historyDescription">
+          <li style="background: rgba(23, 159, 135, 0.8);width: auto;display: table;padding: 0.2em 1.5em;display: table;-webkit-border-top-right-radius: 5px;  -moz-border-radius-topright: 5px;  border-top-right-radius: 5px;"><strong><%= case_history.mission_title %></strong></li>
+          <li style="background: rgba(0, 0, 0, 0.9);height: 64px;text-align: left;padding: 0.2em 1em;text-shadow: 1px 1px 1px black;"><%= case_history.mission_description.truncate(150) %></li>        
+        </ul>
+      </a>
+    </div>
+    <% end %>
+  </div>
+   <!-- <table>
+    <thead>
+      <tr>
+        <th>Company name</th>
+        <th>Start at</th>
+        <th>End at</th>
+        <th>Title</th>
+        <th>Mission title</th>
+        <th>Mission description</th>
+        <th>Solution title</th>
+        <th>Solution description</th>
+        <th>Result title</th>
+        <th>Result description</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @case_histories.each do |case_history| %>
+        <tr>
+          <td><%= case_history.company_name %></td>
+          <td><%= case_history.start_at %></td>
+          <td><%= case_history.end_at %></td>
+          <td><%= case_history.title %></td>
+          <td><%= case_history.mission_title %></td>
+          <td><%= case_history.mission_description %></td>
+          <td><%= case_history.solution_title %></td>
+          <td><%= case_history.solution_description %></td>
+          <td><%= case_history.result_title %></td>
+          <td><%= case_history.result_description %></td>
+          <td><%= link_to 'Show', case_history %></td>
+          <td><%= link_to 'Edit', edit_case_history_path(case_history) %></td>
+          <td><%= link_to 'Destroy', case_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>-->
+</div>

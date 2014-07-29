@@ -1,0 +1,1 @@
+json.extract! @case_history, :company_name, :start_at, :end_at, :title, :mission_title, :mission_description, :solution_title, :solution_description, :result_title, :result_description, :created_at, :updated_at
