@@ -16,7 +16,7 @@
     </nav>
   </div>
 </header>  -->
-<div class="row"style="margin-top: 20px;">
+<div class="row copertina"style="margin-top: 20px;">
   <div class="col-sm-12 div0" style="height: 500px;background-image: url(/assets/<%= @case_history.background_image %>1.jpg);">
 <!-- <div class="div0" style="margin-top: 105px;height: 500px;position: relative; background-image: url(/assets/<%= @case_history.background_image %>);"> -->
     <a name="inizio"></a>
@@ -26,6 +26,11 @@
       </div>
     </div>  
   </div>
+    <div class="col-md-8 col-md-offset-2">
+      <a id="inizio" href="#mission" class="anchor" style="display: table-cell;">
+        <img alt="giu"src="/assets/frecciagiu.png" class="arrow">
+      </a>
+    </div>
 </div>
 
 
@@ -46,7 +51,7 @@
       <%= @case_history.mission_description %>
     </h2>
     <a id="mission" href="#solution" class="anchor">
-      <img alt="giu"src="/assets/frecciagiu.png" style="max-width: 50px;">
+      <img alt="giu"src="/assets/frecciagiu.png" class="arrow1">
     </a>
   </div>
 </div>
@@ -61,7 +66,7 @@
         <%= @case_history.solution_description %>
       </h2>
       <a href="#result"class="anchor">
-        <img alt="giu" src="/assets/frecciagiu.png" style="max-width: 50px;">
+        <img alt="giu" src="/assets/frecciagiu.png" class="arrow1">
       </a>
   </div>  
 </div>
@@ -76,11 +81,13 @@
     <h2 class="description" style="color: <%= @case_history.result_text_color%>">
       <%= @case_history.result_description %>
     </h2> 
-    <a href="#inizio"class="anchor">
-      <img alt="su" src="/assets/frecciasu.png" style="max-width: 50px;"></a>  
+    <a href="#grafic"class="anchor">
+      <img alt="su" src="/assets/frecciagiu.png" class="arrow1">
+    </a>  
   </div>
 </div>
 <div class="row grafico" id="descrizione" style="background-color: white">
+  <a name="grafic"></a>
   <div style="margin: 1em">
     <h1 id="h1" style="color: <%= @case_history.result_text_color%>">
       I nostri numeri
@@ -88,30 +95,18 @@
     <img alt="grafici" src="/assets/grafico1.png">
     <img alt="grafici" src="/assets/grafico2.png">
   </div>
+  <div>
+    <a href="#inizio"class="anchor">
+      <img alt="su" src="/assets/frecciasu.png" class="arrow1">
+    </a>
+  </div>
 </div>
 
 
 
 
 <script type="text/javascript">
-  // $("#mission").click(function(e){
-  //   e.preventDefault();
-  //   var solution = $("a[name='solution']");
-  //   $("html, body").animate({ scrollTop: solution.offset().top }, 600);
-  // });
-
-  // $("a[href='#result']").click(function(e){
-  //   e.preventDefault();
-
-  //   var result = $("a[name='result']");
-  //   $("html, body").animate({ scrollTop: result.offset().top }, 600);
-  // });
-
-  // $("a[href='#inizio']").click(function(e){
-  //   e.preventDefault();
-  //   var inizio = $("a[name='inizio']");
-  //   $("html, body").animate({ scrollTop: inizio.offset().top }, 600);
-  // });
+  
 
   $("a.anchor").click(function(e){
     e.preventDefault();
@@ -120,64 +115,52 @@
     $("html, body").animate({ scrollTop: (inizio.offset().top) -70 }, 600);
   });
 
-//   $(function(){
-//   $(window).scroll(function(){
-//     var aTop = $(id='menu_mission').height();
-//     if($(this).scrollTop()>=aTop){
-//         alert('mission');
-//     }
-//   });
-// });
+
 // evidenzia nel menu la sezione un cui ci si trova
   $(function(){
     $(window).scroll(function(e){
+      var aTop0 = ($('.copertina').offset().top) - 300;
       var aTop = ($('.divMission').offset().top) - 300;
       var aTop1 = ($('.divSolution').offset().top) - 300;
       var aTop2 = ($('.divreRsult').offset().top) - 300;
+      var aTop3 = ($('.grafico').offset().top) - 300;
       // console.log("aTop" + aTop + " and scrollTop " + $(this).scrollTop() )
+      
       
       $("a.anchor[href='#mission']").removeClass("active");
       $("a.anchor[href='#solution']").removeClass("active")
       $("a.anchor[href='#result']").removeClass("active")
+      $("a.anchor[href='#grafic']").removeClass("active")
       if($(this).scrollTop()>=aTop && $(this).scrollTop()<=aTop1){
         $("a.anchor[href='#solution']").removeClass("active")
         $("a.anchor[href='#result']").removeClass("active")
+        $("a.anchor[href='#grafic']").removeClass("active")
         $("a.anchor[href='#mission']").addClass("active");
         console.log("mission");        
       }
       if($(this).scrollTop()>=aTop1 && $(this).scrollTop()<=aTop2){
         $("a.anchor[href='#mission']").removeClass("active");
         $("a.anchor[href='#result']").removeClass("active")
+        $("a.anchor[href='#grafic']").removeClass("active")
         $("a.anchor[href='#solution']").addClass("active");
         console.log("solution");        
       }
-      if($(this).scrollTop()>=aTop2){
+      if($(this).scrollTop()>=aTop2 && $(this).scrollTop()<=aTop3){
         $("a.anchor[href='#mission']").removeClass("active");
         $("a.anchor[href='#solution']").removeClass("active");
+        $("a.anchor[href='#grafic']").removeClass("active")
         $("a.anchor[href='#result']").addClass("active");
+        console.log("result");        
+      }
+      if($(this).scrollTop()>=aTop3){
+        $("a.anchor[href='#mission']").removeClass("active");
+        $("a.anchor[href='#solution']").removeClass("active");
+        $("a.anchor[href='#result']").removeClass("active");
+        $("a.anchor[href='#grafic']").addClass("active")
         console.log("result");        
       }
     });
   });;
-  // $(function(){
-  //   $(window).scroll(function(e){
-  //     var aTop1 = $('.divSolution').offset().top;
-  //     // console.log("aTop" + aTop + " and scrollTop " + $(this).scrollTop() )
-  //     if($(this).scrollTop()>=aTop1){
-  //       $('.divSolution a').attr("name");   
-  //       console.log("solution");
-  //     }
-  //   });
-  // });;
-  // $(function(){
-  //   $(window).scroll(function(e){
-  //     var aTop2 = $('divreRsult').offset().top;
-  //     // console.log("aTop" + aTop + " and scrollTop " + $(this).scrollTop() )
-  //     if($(this).scrollTop()>=aTop2){
-  //       $('divreRsult a').attr("name");  
-  //       console.log("result"); 
-  //     }
-  //   });
-  // });;
+
 
 </script>

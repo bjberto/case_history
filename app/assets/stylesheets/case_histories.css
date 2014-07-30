@@ -32,7 +32,28 @@
 		font-size: 25px;
 	}
 }
-
+.arrow{
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	max-width: 80px;
+	position: absolute;
+	bottom: 70px;
+	margin-left: -40px;
+	left: 50%;
+}
+.arrow:hover{
+	max-width: 90px;
+	position: absolute;
+	bottom: 65px;
+	margin-left: -45px;
+	left: 50%;
+}
+.arrow1{
+	-webkit-transition: max-width 0.5s;
+	transition: max-width 0.5s;
+	max-width: 80px;
+}
+.arrow1:hover{max-width: 90px;}
 a {text-decoration: none;font-family: roboto;font-size: 20px}
 
 a.history:hover ul.historyDescription{
@@ -50,10 +71,10 @@ a.history:hover{
 .row{
 	margin: 0;
 }
-
+#navcontainer li a{text-transform: uppercase;}
 #navcontainer li a:hover,
 #navcontainer li a.active {
-	border-bottom: 1px solid #cab340;
+	border-bottom: 1px solid #179F87;
 }
 /*header:hover li{border-bottom: 1px solid #cab340;}*/
 
@@ -75,14 +96,14 @@ a.history:hover{
     display: block;
     content: '';
 }
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 765px){
 	.ulNav{
-		width: 50%;
+		width: 60%;
 		float: right;
 	}
 }
-@media screen and (max-width: 1024px){
-	.ulNav{width: 100%;}
+@media screen and (max-width: 765px){
+	.ulNav{width: 100%;float: right;}
 }
 	#navcontainer{
 		float: right;
@@ -310,6 +331,10 @@ a.history:hover{
 	.show{
 		padding-top: 200px;
 	}
+}
+.form{
+	display: table;
+	width: 100%;
 }
 @media screen and (min-width: 1024px){
 	.form{margin-top:-2px;}
